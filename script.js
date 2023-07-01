@@ -6,23 +6,23 @@ document.querySelector("#search").addEventListener("click", function() {
     .then(res => res.json())
     .then(data => {
       const movieCard = document.querySelector(".movie-card");
-      movieCard.innerHTML = ''; // Clear previous content
+      movieCard.innerHTML = '';
 
-      // Assuming the data is an array of TV shows
+     
       data.forEach(show => {
         console.log(show.show.name);
         console.log(show.show.image.original);
         console.log(show.show.rating.average);
 
-        // Create elements and update the movie card with show details
+       
         const showContainer = document.createElement("div");
         showContainer.className = "show-container";
         movieCard.appendChild(showContainer);
 
         const imageElement = document.createElement("img");
         imageElement.src = show.show.image.original;
-        imageElement.style.width = "200px"; // Set desired width
-        imageElement.style.height = "150px"; // Set desired height
+        imageElement.style.width = "200px"; 
+        imageElement.style.height = "150px"; 
         showContainer.appendChild(imageElement);
 
         const showDetails = document.createElement("div");
@@ -37,7 +37,7 @@ document.querySelector("#search").addEventListener("click", function() {
         ratingElement.innerText = `Rating: ${show.show.rating.average}`;
         showDetails.appendChild(ratingElement);
 
-        // Other elements and their updates
+      
       });
     })
     .catch(error => {
